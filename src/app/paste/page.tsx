@@ -70,7 +70,7 @@ export default function PastePage() {
             </Select>
           </label>
           {error ? <p className="text-sm text-rose-400">{error}</p> : null}
-          <PrimaryButton type="submit" tone="violet" disabled={loading}>
+          <PrimaryButton type="submit"  disabled={loading}>
             {loading ? "创建中…" : "生成分享链接"}
           </PrimaryButton>
         </form>

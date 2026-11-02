@@ -4,7 +4,7 @@ import type { ToolCard as ToolCardType } from "@/lib/tools";
 export function ToolCard({ tool }: { tool: ToolCardType }) {
   const isSoon = tool.href === "#";
   const className =
-    "group relative flex min-h-[188px] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[#12141a] p-5 shadow-[0_18px_40px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-[color:var(--lime)]/40 hover:shadow-[0_22px_50px_rgba(200,241,53,0.08)]";
+    "group relative flex min-h-[188px] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-panel p-5 shadow-[0_18px_40px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-lime/40 hover:shadow-[0_22px_50px_rgba(200,241,53,0.08)]";
 
   const body = (
     <>
@@ -13,7 +13,7 @@ export function ToolCard({ tool }: { tool: ToolCardType }) {
           {tool.icon}
         </div>
         {tool.badge ? (
-          <span className="rounded-full bg-[color:var(--lime-soft)] px-2.5 py-1 text-[11px] font-medium text-[color:var(--lime)] ring-1 ring-[color:var(--lime)]/20">
+          <span className="rounded-full bg-lime-soft px-2.5 py-1 text-[11px] font-medium text-lime ring-1 ring-lime/20">
             {tool.badge}
           </span>
         ) : null}
@@ -22,7 +22,7 @@ export function ToolCard({ tool }: { tool: ToolCardType }) {
         <h2 className="text-xl font-semibold tracking-tight text-white">{tool.title}</h2>
         <p className="text-sm leading-6 text-zinc-400">{tool.description}</p>
       </div>
-      <div className="mt-auto pt-5 text-sm font-medium text-[color:var(--lime)]">
+      <div className="mt-auto pt-5 text-sm font-medium text-lime">
         {isSoon ? "敬请期待" : tool.external ? "打开站点 ↗" : "进入工具 →"}
       </div>
     </>

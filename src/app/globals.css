@@ -1,30 +1,22 @@
 @import "tailwindcss";
 
-:root {
-  --background: #0a0b0d;
-  --foreground: #f4f7f2;
-  --panel: #12141a;
-  --panel-border: rgba(255, 255, 255, 0.08);
-  --muted: #9aa39a;
-  --lime: #c8f135;
-  --lime-soft: rgba(200, 241, 53, 0.14);
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: #0a0b0d;
+  --color-foreground: #f4f7f2;
+  --color-panel: #12141a;
+  --color-panel-border: rgb(255 255 255 / 0.08);
+  --color-muted: #9aa39a;
+  --color-lime: #c8f135;
+  --color-lime-soft: rgb(200 241 53 / 0.14);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 body {
-  background:
-    radial-gradient(900px 480px at 0% -20%, rgba(200, 241, 53, 0.12), transparent 55%),
-    radial-gradient(700px 420px at 100% 0%, rgba(255, 255, 255, 0.04), transparent 50%),
-    var(--background);
-  color: var(--foreground);
-  min-height: 100vh;
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  @apply min-h-screen bg-background font-sans text-foreground antialiased;
+  background-image:
+    radial-gradient(900px 480px at 0% -20%, rgb(200 241 53 / 0.12), transparent 55%),
+    radial-gradient(700px 420px at 100% 0%, rgb(255 255 255 / 0.04), transparent 50%);
 }
 
 input,
@@ -35,5 +27,5 @@ button {
 }
 
 ::selection {
-  background: rgba(200, 241, 53, 0.28);
+  @apply bg-lime/30;
 }

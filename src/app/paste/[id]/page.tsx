@@ -17,7 +17,7 @@ export default async function PasteDetailPage({ params }: Props) {
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="space-y-2">
-          <Link href="/paste" className="text-sm font-medium text-[color:var(--lime)] hover:underline">
+          <Link href="/paste" className="text-sm font-medium text-lime hover:underline">
             ← 新建便签
           </Link>
           <h1 className="text-3xl font-semibold tracking-tight text-white">{item.title}</h1>

@@ -99,15 +99,15 @@ export default function ShortLinkPage() {
             />
           </label>
           {error ? <p className="text-sm text-rose-400">{error}</p> : null}
-          <PrimaryButton type="submit" tone="sky" disabled={loading}>
+          <PrimaryButton type="submit"  disabled={loading}>
             {loading ? "生成中…" : "生成短链"}
           </PrimaryButton>
         </form>
       </Panel>
 
       {latest ? (
-        <Panel className="border-[color:var(--lime)]/25 bg-[color:var(--lime-soft)]">
-          <p className="text-sm font-medium text-[color:var(--lime)]">刚生成</p>
+        <Panel className="border-lime/25 bg-lime-soft">
+          <p className="text-sm font-medium text-lime">刚生成</p>
           <p className="mt-2 break-all font-mono text-lg text-white">{shortUrl(latest)}</p>
           <GhostButton type="button" onClick={copyLatest} className="mt-4">
             {copied ? "已复制" : "复制链接"}
@@ -124,7 +124,7 @@ export default function ShortLinkPage() {
             {items.slice(0, 20).map((item) => (
               <li key={item.code} className="rounded-2xl border border-white/10 bg-black/25 px-4 py-3.5">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <a className="font-mono text-sm font-medium text-[color:var(--lime)] hover:underline" href={`/s/${item.code}`}>
+                  <a className="font-mono text-sm font-medium text-lime hover:underline" href={`/s/${item.code}`}>
                     /s/{item.code}
                   </a>
                   <span className="rounded-full bg-white/5 px-2.5 py-1 text-xs text-zinc-400">
