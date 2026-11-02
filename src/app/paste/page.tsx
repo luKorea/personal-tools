@@ -69,7 +69,7 @@ export default function PastePage() {
               <option value="0">永不过期</option>
             </Select>
           </label>
-          {error ? <p className="text-sm text-rose-600">{error}</p> : null}
+          {error ? <p className="text-sm text-rose-400">{error}</p> : null}
           <PrimaryButton type="submit" tone="violet" disabled={loading}>
             {loading ? "创建中…" : "生成分享链接"}
           </PrimaryButton>

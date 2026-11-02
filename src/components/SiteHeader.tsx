@@ -8,15 +8,15 @@ const links = [
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-20 border-b border-zinc-200/80 bg-[#f6f7f9]/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-20 border-b border-white/8 bg-[#0a0b0d]/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2.5">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-zinc-950 text-[13px] font-semibold text-white">
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-[color:var(--lime)] text-[13px] font-bold text-zinc-950">
             PT
           </span>
           <div className="leading-tight">
-            <div className="text-sm font-semibold text-zinc-950">Personal Tools</div>
-            <div className="text-[11px] text-zinc-450 text-zinc-500">korealu</div>
+            <div className="text-sm font-semibold text-white">Personal Tools</div>
+            <div className="text-[11px] text-zinc-500">korealu</div>
           </div>
         </Link>
         <nav className="flex items-center gap-1 text-sm">
@@ -27,7 +27,7 @@ export function SiteHeader() {
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full px-3 py-1.5 text-zinc-600 transition hover:bg-white hover:text-zinc-950"
+                className="rounded-full px-3 py-1.5 text-zinc-400 transition hover:bg-white/5 hover:text-[color:var(--lime)]"
               >
                 {link.label}
               </a>
@@ -35,7 +35,7 @@ export function SiteHeader() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-full px-3 py-1.5 text-zinc-600 transition hover:bg-white hover:text-zinc-950"
+                className="rounded-full px-3 py-1.5 text-zinc-400 transition hover:bg-white/5 hover:text-[color:var(--lime)]"
               >
                 {link.label}
               </Link>

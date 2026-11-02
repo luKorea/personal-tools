@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f6f7f9;
-  --foreground: #18181b;
+  --background: #0a0b0d;
+  --foreground: #f4f7f2;
+  --panel: #12141a;
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --muted: #9aa39a;
+  --lime: #c8f135;
+  --lime-soft: rgba(200, 241, 53, 0.14);
 }
 
 @theme inline {
@@ -14,8 +19,8 @@
 
 body {
   background:
-    radial-gradient(900px 420px at 0% -10%, rgba(14, 165, 233, 0.08), transparent 55%),
-    radial-gradient(700px 360px at 100% 0%, rgba(139, 92, 246, 0.07), transparent 50%),
+    radial-gradient(900px 480px at 0% -20%, rgba(200, 241, 53, 0.12), transparent 55%),
+    radial-gradient(700px 420px at 100% 0%, rgba(255, 255, 255, 0.04), transparent 50%),
     var(--background);
   color: var(--foreground);
   min-height: 100vh;
@@ -30,5 +35,5 @@ button {
 }
 
 ::selection {
-  background: rgba(24, 24, 27, 0.12);
+  background: rgba(200, 241, 53, 0.28);
 }

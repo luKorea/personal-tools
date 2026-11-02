@@ -12,28 +12,30 @@ export function PageHero({
   return (
     <section className="space-y-3">
       {eyebrow ? (
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">{eyebrow}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--lime)]">{eyebrow}</p>
       ) : null}
-      <h1 className="text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">{title}</h1>
-      <p className="max-w-2xl text-[15px] leading-7 text-zinc-500">{description}</p>
+      <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">{title}</h1>
+      <p className="max-w-2xl text-[15px] leading-7 text-[color:var(--muted)]">{description}</p>
     </section>
   );
 }
 
 export function Panel({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={`rounded-3xl border border-zinc-200/80 bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_12px_32px_rgba(15,23,42,0.04)] sm:p-6 ${className}`}>
+    <div
+      className={`rounded-3xl border border-[color:var(--panel-border)] bg-[color:var(--panel)] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.35)] sm:p-6 ${className}`}
+    >
       {children}
     </div>
   );
 }
 
 export function Label({ children }: { children: React.ReactNode }) {
-  return <span className="mb-2 block text-sm font-medium text-zinc-700">{children}</span>;
+  return <span className="mb-2 block text-sm font-medium text-zinc-200">{children}</span>;
 }
 
 const fieldClass =
-  "w-full rounded-2xl border border-zinc-200 bg-zinc-50/70 px-3.5 py-2.5 text-[15px] text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-zinc-900 focus:bg-white focus:ring-4 focus:ring-zinc-900/5";
+  "w-full rounded-2xl border border-white/10 bg-black/35 px-3.5 py-2.5 text-[15px] text-white outline-none transition placeholder:text-zinc-500 focus:border-[color:var(--lime)] focus:ring-4 focus:ring-[color:var(--lime-soft)]";
 
 export function TextInput(props: InputHTMLAttributes<HTMLInputElement>) {
   return <input {...props} className={`${fieldClass} ${props.className || ""}`} />;
@@ -48,14 +50,15 @@ export function Select(props: SelectHTMLAttributes<HTMLSelectElement>) {
 }
 
 export function PrimaryButton({
-  tone = "dark",
+  tone = "lime",
   className = "",
   ...props
-}: ButtonHTMLAttributes<HTMLButtonElement> & { tone?: "dark" | "sky" | "violet" }) {
+}: ButtonHTMLAttributes<HTMLButtonElement> & { tone?: "lime" | "sky" | "violet" | "dark" }) {
   const tones = {
-    dark: "bg-zinc-950 text-white hover:bg-zinc-800",
-    sky: "bg-sky-600 text-white hover:bg-sky-500",
-    violet: "bg-violet-600 text-white hover:bg-violet-500",
+    lime: "bg-[color:var(--lime)] text-zinc-950 hover:brightness-110",
+    sky: "bg-[color:var(--lime)] text-zinc-950 hover:brightness-110",
+    violet: "bg-[color:var(--lime)] text-zinc-950 hover:brightness-110",
+    dark: "bg-white text-zinc-950 hover:bg-zinc-200",
   };
   return (
     <button
@@ -69,7 +72,7 @@ export function GhostButton(props: ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button
       {...props}
-      className={`inline-flex items-center justify-center rounded-2xl border border-zinc-200 bg-white px-3.5 py-2 text-sm font-medium text-zinc-700 transition hover:bg-zinc-50 ${props.className || ""}`}
+      className={`inline-flex items-center justify-center rounded-2xl border border-white/12 bg-white/5 px-3.5 py-2 text-sm font-medium text-zinc-100 transition hover:bg-white/10 ${props.className || ""}`}
     />
   );
 }

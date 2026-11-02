@@ -98,7 +98,7 @@ export default function ShortLinkPage() {
               placeholder="比如 my-link"
             />
           </label>
-          {error ? <p className="text-sm text-rose-600">{error}</p> : null}
+          {error ? <p className="text-sm text-rose-400">{error}</p> : null}
           <PrimaryButton type="submit" tone="sky" disabled={loading}>
             {loading ? "生成中…" : "生成短链"}
           </PrimaryButton>
@@ -106,9 +106,9 @@ export default function ShortLinkPage() {
       </Panel>
 
       {latest ? (
-        <Panel className="border-sky-200 bg-sky-50/70">
-          <p className="text-sm font-medium text-sky-800">刚生成</p>
-          <p className="mt-2 break-all font-mono text-lg text-zinc-950">{shortUrl(latest)}</p>
+        <Panel className="border-[color:var(--lime)]/25 bg-[color:var(--lime-soft)]">
+          <p className="text-sm font-medium text-[color:var(--lime)]">刚生成</p>
+          <p className="mt-2 break-all font-mono text-lg text-white">{shortUrl(latest)}</p>
           <GhostButton type="button" onClick={copyLatest} className="mt-4">
             {copied ? "已复制" : "复制链接"}
           </GhostButton>
@@ -116,22 +116,22 @@ export default function ShortLinkPage() {
       ) : null}
 
       <section className="space-y-3">
-        <h2 className="text-lg font-semibold text-zinc-950">最近记录</h2>
+        <h2 className="text-lg font-semibold text-white">最近记录</h2>
         {items.length === 0 ? (
-          <p className="text-sm text-zinc-500">还没有短链。</p>
+          <p className="text-sm text-zinc-400">还没有短链。</p>
         ) : (
           <ul className="space-y-3">
             {items.slice(0, 20).map((item) => (
-              <li key={item.code} className="rounded-2xl border border-zinc-200 bg-white px-4 py-3.5 shadow-sm">
+              <li key={item.code} className="rounded-2xl border border-white/10 bg-black/25 px-4 py-3.5">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <a className="font-mono text-sm font-medium text-sky-700 hover:underline" href={`/s/${item.code}`}>
+                  <a className="font-mono text-sm font-medium text-[color:var(--lime)] hover:underline" href={`/s/${item.code}`}>
                     /s/{item.code}
                   </a>
-                  <span className="rounded-full bg-zinc-100 px-2.5 py-1 text-xs text-zinc-500">
+                  <span className="rounded-full bg-white/5 px-2.5 py-1 text-xs text-zinc-400">
                     {item.hits} 次访问
                   </span>
                 </div>
-                <p className="mt-1.5 truncate text-sm text-zinc-500">{item.url}</p>
+                <p className="mt-1.5 truncate text-sm text-zinc-400">{item.url}</p>
               </li>
             ))}
           </ul>

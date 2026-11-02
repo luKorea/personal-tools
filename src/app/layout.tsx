@@ -28,10 +28,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased text-zinc-950`} suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-white`}
+        suppressHydrationWarning
+      >
         <SiteHeader />
         <main className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-12">{children}</main>
-        <footer className="mx-auto max-w-5xl px-4 pb-10 text-center text-xs text-zinc-400 sm:px-6">
+        <footer className="mx-auto max-w-5xl px-4 pb-10 text-center text-xs text-zinc-600 sm:px-6">
           Built for everyday utilities · local first
         </footer>
       </body>
