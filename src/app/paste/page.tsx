@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Label, PageHero, Panel, PrimaryButton, Select, TextArea, TextInput } from "@/components/ui";
 
 export default function PastePage() {
   const router = useRouter();
@@ -33,54 +34,47 @@ export default function PastePage() {
 
   return (
     <div className="space-y-8">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-semibold text-white">便签粘贴板</h1>
-        <p className="text-slate-300">生成一个可分享的文本链接，适合临时传配置、报错日志。</p>
-      </div>
+      <PageHero
+        eyebrow="Paste"
+        title="便签"
+        description="生成可分享的文本链接，适合临时传配置、报错日志。"
+      />
 
-      <form onSubmit={onSubmit} className="space-y-4 rounded-2xl border border-white/10 bg-white/5 p-5">
-        <label className="block space-y-2">
-          <span className="text-sm text-slate-300">标题（可选）</span>
-          <input
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="比如：接口报错日志"
-            className="w-full rounded-xl border border-white/10 bg-black/30 px-3 py-2.5 outline-none ring-violet-400/40 focus:ring-2"
-          />
-        </label>
-        <label className="block space-y-2">
-          <span className="text-sm text-slate-300">内容</span>
-          <textarea
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            rows={12}
-            placeholder="把文字粘贴到这里…"
-            className="w-full rounded-xl border border-white/10 bg-black/30 px-3 py-2.5 outline-none ring-violet-400/40 focus:ring-2"
-            required
-          />
-        </label>
-        <label className="block space-y-2">
-          <span className="text-sm text-slate-300">过期时间</span>
-          <select
-            value={expireHours}
-            onChange={(e) => setExpireHours(e.target.value)}
-            className="w-full rounded-xl border border-white/10 bg-black/30 px-3 py-2.5 outline-none ring-violet-400/40 focus:ring-2"
-          >
-            <option value="1">1 小时</option>
-            <option value="24">24 小时</option>
-            <option value="168">7 天</option>
-            <option value="0">永不过期</option>
-          </select>
-        </label>
-        {error ? <p className="text-sm text-rose-300">{error}</p> : null}
-        <button
-          type="submit"
-          disabled={loading}
-          className="rounded-xl bg-violet-500 px-4 py-2.5 font-medium text-white transition hover:bg-violet-400 disabled:opacity-60"
-        >
-          {loading ? "创建中…" : "生成分享链接"}
-        </button>
-      </form>
+      <Panel>
+        <form onSubmit={onSubmit} className="space-y-5">
+          <label className="block">
+            <Label>标题（可选）</Label>
+            <TextInput
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="比如：接口报错日志"
+            />
+          </label>
+          <label className="block">
+            <Label>内容</Label>
+            <TextArea
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              rows={12}
+              placeholder="把文字粘贴到这里…"
+              required
+            />
+          </label>
+          <label className="block">
+            <Label>过期时间</Label>
+            <Select value={expireHours} onChange={(e) => setExpireHours(e.target.value)}>
+              <option value="1">1 小时</option>
+              <option value="24">24 小时</option>
+              <option value="168">7 天</option>
+              <option value="0">永不过期</option>
+            </Select>
+          </label>
+          {error ? <p className="text-sm text-rose-600">{error}</p> : null}
+          <PrimaryButton type="submit" tone="violet" disabled={loading}>
+            {loading ? "创建中…" : "生成分享链接"}
+          </PrimaryButton>
+        </form>
+      </Panel>
     </div>
   );
 }

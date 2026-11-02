@@ -15,10 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "个人工具站",
-    template: "%s · 个人工具站",
+    default: "Personal Tools",
+    template: "%s · Personal Tools",
   },
-  description: "短链、便签、视频解析等小工具合集",
+  description: "短链、便签、视频解析等个人小工具合集",
 };
 
 export default function RootLayout({
@@ -28,9 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased text-zinc-950`}>
         <SiteHeader />
-        <main className="mx-auto w-full max-w-5xl px-4 py-8 sm:py-10">{children}</main>
+        <main className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-12">{children}</main>
+        <footer className="mx-auto max-w-5xl px-4 pb-10 text-center text-xs text-zinc-400 sm:px-6">
+          Built for everyday utilities · local first
+        </footer>
       </body>
     </html>
   );

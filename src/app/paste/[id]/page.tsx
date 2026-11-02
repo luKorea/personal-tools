@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPaste } from "@/lib/store";
+import { Panel } from "@/components/ui";
 import { CopyButton } from "./CopyButton";
 
 export const runtime = "nodejs";
@@ -16,13 +17,11 @@ export default async function PasteDetailPage({ params }: Props) {
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="space-y-2">
-          <p className="text-sm text-violet-300">
-            <Link href="/paste" className="hover:underline">
-              ← 新建便签
-            </Link>
-          </p>
-          <h1 className="text-3xl font-semibold text-white">{item.title}</h1>
-          <p className="text-sm text-slate-400">
+          <Link href="/paste" className="text-sm font-medium text-violet-700 hover:underline">
+            ← 新建便签
+          </Link>
+          <h1 className="text-3xl font-semibold tracking-tight text-zinc-950">{item.title}</h1>
+          <p className="text-sm text-zinc-500">
             创建于 {new Date(item.createdAt).toLocaleString("zh-CN", { hour12: false })}
             {item.expiresAt
               ? ` · ${new Date(item.expiresAt).toLocaleString("zh-CN", { hour12: false })} 过期`
@@ -31,9 +30,11 @@ export default async function PasteDetailPage({ params }: Props) {
         </div>
         <CopyButton text={item.content} />
       </div>
-      <pre className="overflow-x-auto whitespace-pre-wrap break-words rounded-2xl border border-white/10 bg-black/30 p-5 text-sm leading-6 text-slate-100">
-        {item.content}
-      </pre>
+      <Panel className="bg-zinc-950 text-zinc-50">
+        <pre className="overflow-x-auto whitespace-pre-wrap break-words font-mono text-sm leading-7 text-zinc-100">
+          {item.content}
+        </pre>
+      </Panel>
     </div>
   );
 }

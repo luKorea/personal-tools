@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { GhostButton } from "@/components/ui";
 
 export function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
@@ -11,13 +12,5 @@ export function CopyButton({ text }: { text: string }) {
     setTimeout(() => setCopied(false), 1500);
   }
 
-  return (
-    <button
-      type="button"
-      onClick={onCopy}
-      className="rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-sm text-white hover:bg-white/10"
-    >
-      {copied ? "已复制" : "复制内容"}
-    </button>
-  );
+  return <GhostButton type="button" onClick={onCopy}>{copied ? "已复制" : "复制内容"}</GhostButton>;
 }
