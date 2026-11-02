@@ -4,6 +4,8 @@
 
 ## 已有工具
 
+- `/chat-clean` 聊天记录清洗（浏览器本地解析）
+
 - `/` 工具首页
 - `/short-link` 短链（本地 `data/short-links.json`）
 - `/s/[code]` 短链跳转

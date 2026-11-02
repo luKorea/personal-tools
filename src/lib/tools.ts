@@ -10,20 +10,12 @@ export type ToolCard = {
 
 export const TOOLS: ToolCard[] = [
   {
-    href: "/short-link",
-    title: "短链",
-    description: "长链接收成短码，支持自定义与访问计数。",
-    badge: "可用",
+    href: "/chat-clean",
+    title: "聊天记录清洗",
+    description: "微信 / QQ 导出文本一键整理成可读 Markdown，本地处理不上传。",
+    badge: "新",
     accent: "sky",
-    icon: "🔗",
-  },
-  {
-    href: "/paste",
-    title: "便签",
-    description: "临时分享文本、日志或配置，可设过期。",
-    badge: "可用",
-    accent: "violet",
-    icon: "📝",
+    icon: "💬",
   },
   {
     href: "https://korealu.top/x-video-parse",
@@ -35,11 +27,19 @@ export const TOOLS: ToolCard[] = [
     icon: "🎬",
   },
   {
-    href: "#",
-    title: "图床",
-    description: "上传图片拿直链，下一步再接存储。",
-    badge: "规划中",
+    href: "/short-link",
+    title: "短链",
+    description: "长链接收成短码，支持自定义与访问计数。",
+    badge: "可用",
+    accent: "violet",
+    icon: "🔗",
+  },
+  {
+    href: "/paste",
+    title: "便签",
+    description: "临时分享文本、日志或配置，可设过期。",
+    badge: "可用",
     accent: "amber",
-    icon: "🖼️",
+    icon: "📝",
   },
 ];

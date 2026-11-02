@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const links = [
+  { href: "/chat-clean", label: "聊天清洗" },
   { href: "/short-link", label: "短链" },
   { href: "/paste", label: "便签" },
   { href: "https://korealu.top/x-video-parse", label: "帧存", external: true },
